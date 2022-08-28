@@ -8,6 +8,9 @@
  * @copyright Copyright (c) 2022
  *
  */
+
+#include <behaviortree_cpp_v3/behavior_tree.h>
+
 #include <spdlog/spdlog.h>
 
 #include "ZeroMqMsgDeal.hpp"
@@ -21,13 +24,13 @@ int main(void)
 
     while (1)
     {
-        LSLAM::MyOccupancyGrid msg;
-        msg.set_saved_origin_x_(1000);
-        msg.set_saved_origin_y_(2000);
+        // LSLAM::MyOccupancyGrid msg;
+        // msg.set_saved_origin_x_(1000);
+        // msg.set_saved_origin_y_(2000);
 
-        ZeroMqFactory::ValueZeroMqPublish::GetInstance().PublishProtoMsg(msg);
+        // ZeroMqFactory::ValueZeroMqPublish::GetInstance().PublishProtoMsg(msg);
 
-        std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+        // std::this_thread::sleep_for(std::chrono::milliseconds(1000));
     }
 
     return 0;

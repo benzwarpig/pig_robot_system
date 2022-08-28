@@ -19,10 +19,16 @@ if(EXISTS "${CMAKE_HOME_DIRECTORY}/../zeromq_factory/CMakeLists.txt")
     set(LIBZEROMQ_FACTORY_EXISTS TRUE)
 endif()
 
+# # 找第三方库
+# 找行为树
+find_package(behaviortree_cpp_v3)
+
 include_directories(./include)
 include_directories(../zeromq_factory/proto/proto_source)
 
 add_executable(${PROJECT_NAME} pig_robot_node.cpp)
+
+target_link_libraries(${PROJECT_NAME} BT::behaviortree_cpp_v3)
 
 if(LIBZEROMQ_FACTORY_EXISTS)
     message(STATUS "${PROJECT_NAME} 链接 zeromq_factory")
